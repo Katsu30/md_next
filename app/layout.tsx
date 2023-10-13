@@ -1,6 +1,6 @@
 import "./globals.css";
-import { Footer } from "./ui/Footer";
-import { Header } from "./ui/Header";
+import { Footer } from "./ui/common/Footer";
+import { Header } from "./ui/common/Header";
 
 type Props = {
   children: React.ReactNode;
