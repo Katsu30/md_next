@@ -19,13 +19,17 @@ type Props = {
 
 const BlogPostPage = ({ params }: Props) => {
   const { slug } = params;
-  const post = getPostBySlug(slug);
+  const { content, thumbnail } = getPostBySlug(slug);
 
   return (
     <div className="flex justify-center align-middle flex-col w-full h-full gap-2 my-8">
       <div className="w-full h-full flex justify-center">
         <Image
-          src={"/thumbnails/dafault-thumbnail.png"}
+          src={
+            thumbnail
+              ? `/thumbnails/${slug}.png`
+              : "/thumbnails/dafault-thumbnail.png"
+          }
           alt={""}
           width={400}
           height={400}
@@ -36,7 +40,7 @@ const BlogPostPage = ({ params }: Props) => {
         remarkPlugins={[remarkGfm]}
         className={"markdown w-full h-full"}
       >
-        {post.content}
+        {content}
       </Markdown>
     </div>
   );

@@ -4,12 +4,13 @@ import path from "path";
 
 export type Post = {
   slug: string;
-  title: string;
-  date: string;
   content: string;
+  title?: string;
+  date?: string;
+  thumbnail?: string;
 };
 
-export function getPostBySlug(slug: string) {
+export function getPostBySlug(slug: string): Post {
   const filePath = path.join("contents", slug, "index.md");
   const file = fs.readFileSync(filePath);
   const { data, content } = matter(file);

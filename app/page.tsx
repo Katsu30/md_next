@@ -6,7 +6,6 @@ const Home = async () => {
 
   return (
     <div>
-      <h1 className="my-8">コンテンツ</h1>
       <div className="grid grid-cols-3 gap-4">
         {posts.map((post, index) => (
           <BlogCard key={`blog_card_${index}`} {...post} />
@@ -18,7 +17,7 @@ const Home = async () => {
 
 const getPosts = async (): Promise<Post[]> => {
   const allPosts = getAllPosts();
-  return allPosts.slice(0, 2).map((post) => post);
+  return allPosts.map((post) => post);
 };
 
 export default Home;
